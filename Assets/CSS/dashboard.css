@@ -97,3 +97,50 @@ body {
   100% { transform: translateX(0); }
 }
 
+
+
+@media (max-width: 768px) {
+  #simulation-area {
+    height: 250px;
+  }
+
+  #client, #server {
+    top: 100px;
+    width: 40px;
+    height: 40px;
+  }
+
+  #firewall {
+    top: 30px;
+    left: 160px;
+    width: 15px;
+    height: 180px;
+  }
+
+  @keyframes moveToServer {
+    0% { left: 100px; transform: scale(1); }
+    100% { left: 240px; transform: scale(1.2); }
+  }
+
+  @keyframes bounceBack {
+    0% { left: 100px; }
+    50% { left: 160px; }
+    100% { left: 100px; opacity: 0; }
+  }
+}
+
+@media (max-width: 576px) {
+  #rule-form .row > div,
+  #packet-form .row > div {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #packet-form .col-md-1.d-grid {
+    margin-top: -10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

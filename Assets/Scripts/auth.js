@@ -26,7 +26,7 @@ async function registerUser(event) {
   }
 
   try {
-    const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/auth/register', {
+    const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password }),
@@ -55,7 +55,7 @@ async function loginUser(event) {
   const password = document.getElementById('password').value.trim();
 
   try {
-    const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/auth/login', {
+    const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),

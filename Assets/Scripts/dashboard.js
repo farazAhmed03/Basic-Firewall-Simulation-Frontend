@@ -6,7 +6,7 @@ if (!token) {
 
 // Logout
 async function logout() {
-  const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/auth/logout', {
+  const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/auth/logout', {
     method: 'POST',
     credentials: 'include',
     headers: { 'Authorization': `Bearer ${token}` }
@@ -26,7 +26,7 @@ document.getElementById('rule-form').addEventListener('submit', async (e) => {
     action: document.getElementById('action').value
   };
 
-  const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/firewall/rules', {
+  const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/firewall/rules', {
     method: 'POST',
     credentials: 'include',
     headers: {
@@ -47,7 +47,7 @@ document.getElementById('rule-form').addEventListener('submit', async (e) => {
 
 // Fetch Rules
 async function fetchRules() {
-  const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/firewall/rules', {
+  const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/firewall/rules', {
     headers: { 'Authorization': `Bearer ${token}` }
   });
   const data = await res.json();
@@ -73,7 +73,7 @@ document.getElementById('packet-form').addEventListener('submit', async (e) => {
     port: parseInt(document.getElementById('packet-port').value)
   };
 
-  const res = await fetch('basic-firewall-simulation-production.up.railway.app/api/v1/firewall/simulate', {
+  const res = await fetch('https://basic-firewall-simulation-production.up.railway.app/api/v1/firewall/simulate', {
     method: 'POST',
     credentials: 'include',
     headers: {

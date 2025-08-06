@@ -1,6 +1,12 @@
 body {
   background-color: #f0f0f0;
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  padding: 0.8rem 1rem;
 }
 
 #simulation-area {
@@ -25,6 +31,7 @@ body {
   background: url('https://img.icons8.com/color/48/000000/computer.png') no-repeat center;
   background-size: contain;
 }
+
 #firewall {
   top: 50px;
   left: 375px;
@@ -32,12 +39,19 @@ body {
   height: 200px;
   background-color: #ff4444;
 }
+
 #server {
   right: 50px;
   background: url('https://img.icons8.com/color/48/000000/server.png') no-repeat center;
   background-size: contain;
 }
 
+.add-rule-btn {
+  width: auto;
+}
+
+
+/* Packet Ball Styles */
 .packet-ball {
   position: absolute;
   width: 20px;
@@ -69,7 +83,7 @@ body {
   100% { left: 100px; opacity: 0; }
 }
 
-/* Firewall Animation */
+/* Animation Effects */
 #firewall.open {
   background-color: #4caf50;
   animation: softShake 0.3s ease-in-out;
@@ -82,7 +96,6 @@ body {
   75% { transform: scale(1.05) translateX(-2px); }
   100% { transform: scale(1) translateX(0); }
 }
-
 
 #firewall.blocked {
   background-color: #ff0000;
@@ -97,29 +110,30 @@ body {
   100% { transform: translateX(0); }
 }
 
-
-
-@media (max-width: 768px) {
-  #simulation-area {
-    height: 250px;
-  }
-
+/* Mobile Responsive */
+@media (max-width: 576px) {
   #client, #server {
-    top: 100px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+    top: 110px;
   }
 
   #firewall {
-    top: 30px;
     left: 160px;
-    width: 15px;
-    height: 180px;
+    height: 160px;
+    top: 70px;
+    width: 12px;
+  }
+
+  .packet-ball {
+    width: 12px;
+    height: 12px;
+    top: 135px;
   }
 
   @keyframes moveToServer {
-    0% { left: 100px; transform: scale(1); }
-    100% { left: 240px; transform: scale(1.2); }
+    0% { left: 100px; }
+    100% { left: 240px; }
   }
 
   @keyframes bounceBack {
@@ -127,20 +141,39 @@ body {
     50% { left: 160px; }
     100% { left: 100px; opacity: 0; }
   }
-}
 
-@media (max-width: 576px) {
-  #rule-form .row > div,
-  #packet-form .row > div {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .form-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
   }
 
-  #packet-form .col-md-1.d-grid {
-    margin-top: -10px;
+  .form-toggle button {
+    flex: 1;
+    margin: 0 2px;
+  }
+
+  #rule-form, #packet-form {
+    display: none;
+  }
+
+  #rule-form.show,
+  #packet-form.show {
+    display: block;
+  }
+
+  #rule-form .form-control,
+  #packet-form .form-control,
+  #packet-form .form-select {
+    margin-bottom: 10px;
   }
 
   .btn {
     width: 100%;
   }
+  
+  .add-rule-btn {
+    width: 100%;
+  }
+
 }
